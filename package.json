@@ -4,6 +4,7 @@
   "private": true,
   "scripts": {
     "generate:prisma-authenticate": "npx prisma generate --schema=./prisma/authenticate/schema.prisma",
+    "reset:prisma-authenticate": "npx prisma migrate reset --schema=./prisma/authenticate/schema.prisma",
     "push:prisma-authenticate": "npx prisma db push --schema=./prisma/authenticate/schema.prisma",
     "prisma-all": "npm run generate:prisma-authenticate && npm run push:prisma-authenticate",
     "dev": "next dev",
