@@ -5,7 +5,7 @@ import { Slot } from "@radix-ui/react-slot";
 import { cva, type VariantProps } from "class-variance-authority";
 
 import { cn } from "@/lib/utils";
-import { useStyles } from "@/hooks/useStyles";
+import { useStyles } from "@/hooks/use_styles";
 import { useTheme } from "@/contexts/ThemeContext";
 import { HoverAnimationWrapper } from "../animation/theme_hover_component_wrapper";
 const buttonVariants = cva(

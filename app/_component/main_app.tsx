@@ -2,7 +2,7 @@
 
 import ThemeSwitcher from "@/components/ui/theme_switcher";
 import { useTheme } from "@/contexts/ThemeContext";
-import { useStyles } from "@/hooks/useStyles";
+import { useStyles } from "@/hooks/use_styles";
 import { cn } from "@/lib/utils";
 import { reenie_beanie } from "../(root)/page";
 import { Button } from "@/components/ui/button";

@@ -24,6 +24,10 @@ export const useStyles = () => {
         background: backgroundPrimary,
         color: textPrimary,
       },
+      card: {
+        background: backgroundSecondary,
+        color: textSecondary,
+      },
 
       backgroundInput: {
         background: backgroundSecondary,
