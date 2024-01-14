@@ -1,4 +1,4 @@
-import { reenie_beanie } from "@/app/(root)/page";
+import { reenie_beanie } from "@/app/_component/main_app";
 import { cn } from "@/lib/utils";
 import { Poppins } from "next/font/google";
 
