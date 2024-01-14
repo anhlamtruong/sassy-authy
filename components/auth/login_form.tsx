@@ -23,6 +23,7 @@ import { Icons } from "../ui/icons";
 import Link from "next/link";
 export const LoginForm = () => {
   const searchParams = useSearchParams();
+  const callbackUrl = searchParams.get("callbackUrl");
   const urlError =
     searchParams.get("error") === "OAuthAccountNotLinked"
       ? "Email already in use with different provider!"
@@ -47,7 +48,10 @@ export const LoginForm = () => {
     setSuccess("");
     startTransition(async () => {
       try {
-        const { success, error, twoFactor } = await login(values);
+        const { success, error, twoFactor } = await login(
+          values,
+          callbackUrl as string
+        );
         if (error) {
           form.reset();
           setError(error);
@@ -146,7 +150,11 @@ export const LoginForm = () => {
           </div>
           <FormError message={error || urlError}></FormError>
           <FormSuccess message={success}></FormSuccess>
-
+          {!!success && (
+            <p>
+              Go to your mail box: <a href="https://mail.google.com/">here</a>
+            </p>
+          )}
           <Button disabled={isPending} type="submit" className=" w-full">
             {isPending && (
               <Icons.spinner className="mr-2 h-4 w-4 animate-spin" />

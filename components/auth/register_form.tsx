@@ -19,6 +19,7 @@ import { FormError } from "../form_error";
 import { FormSuccess } from "../form_success";
 import { register } from "@/actions/register";
 import { Icons } from "../ui/icons";
+import Link from "next/link";
 
 export const RegisterForm = () => {
   const [isPending, startTransition] = useTransition();
@@ -110,7 +111,18 @@ export const RegisterForm = () => {
           </div>
           <FormError message={error}></FormError>
           <FormSuccess message={success}></FormSuccess>
-
+          {!!success && (
+            <p>
+              Go to your mail box:{" "}
+              <Link
+                className=" hover:underline text-blue-600"
+                target="_blank"
+                href="https://mail.google.com/"
+              >
+                here
+              </Link>
+            </p>
+          )}
           <Button disabled={isPending} type="submit" className=" w-full">
             {isPending && (
               <Icons.spinner className="mr-2 h-4 w-4 animate-spin" />

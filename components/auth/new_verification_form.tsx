@@ -1,20 +1,26 @@
 "use client";
-import { ClimbingBoxLoader } from "react-spinners";
+import { BeatLoader, ClimbingBoxLoader } from "react-spinners";
 import { useSearchParams } from "next/navigation";
 import { useCallback, useEffect, useState } from "react";
 import { newVerification } from "@/actions/new_verification";
 import { CardWrapper } from "@/components/auth/card-wrapper";
 import { FormError } from "@/components/form_error";
 import { FormSuccess } from "@/components/form_success";
+import { useRouter } from "next/navigation";
+
 const NewVerificationForm = () => {
   const [error, setError] = useState<string | undefined>();
   const [success, setSuccess] = useState<string | undefined>();
+  const [isLoading, setIsLoading] = useState<boolean>(false);
+  const router = useRouter();
+
   const searchParams = useSearchParams();
 
   const token = searchParams.get("token");
 
   const onSubmit = useCallback(async () => {
     try {
+      setIsLoading(true);
       if (success || error) {
         return;
       }
@@ -27,10 +33,16 @@ const NewVerificationForm = () => {
         await newVerification(token);
       setError(verificationError);
       setSuccess(verificationSuccess);
+
+      if (success) {
+        router.push("/login");
+      }
     } catch (error) {
       setError("Something went wrong:" + error);
+    } finally {
+      setIsLoading(false);
     }
-  }, [error, success, token]);
+  }, [error, router, success, token]);
 
   useEffect(() => {
     onSubmit();
@@ -46,6 +58,12 @@ const NewVerificationForm = () => {
         <div className=" flex flex-col items-center w-full justify-center">
           {!success && !error && (
             <ClimbingBoxLoader size={10} className=" rotate-45" />
+          )}
+          {isLoading && (
+            <>
+              <BeatLoader></BeatLoader>
+              <p>Verifying your Token</p>
+            </>
           )}
           <FormSuccess message={success}></FormSuccess>
           {!success && <FormError message={error}></FormError>}

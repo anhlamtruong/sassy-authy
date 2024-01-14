@@ -32,8 +32,10 @@ export const UserButton = () => {
       <DrawerContent>
         <div className=" items-start justify-center flex flex-col mx-auto w-full max-w-sm">
           <DrawerHeader>
-            <DrawerTitle>Move Goal</DrawerTitle>
-            <DrawerDescription>Set your daily activity goal.</DrawerDescription>
+            <DrawerTitle>User Setting</DrawerTitle>
+            <DrawerDescription>
+              This is your account setting model.
+            </DrawerDescription>
           </DrawerHeader>
 
           <div className="p-4  w-full">
