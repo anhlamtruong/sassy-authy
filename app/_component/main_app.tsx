@@ -4,10 +4,15 @@ import ThemeSwitcher from "@/components/ui/theme_switcher";
 import { useTheme } from "@/contexts/ThemeContext";
 import { useStyles } from "@/hooks/use_styles";
 import { cn } from "@/lib/utils";
-import { reenie_beanie } from "../(root)/page";
+
 import { Button } from "@/components/ui/button";
 import LoginButton from "@/components/auth/login_button";
-
+import { Reenie_Beanie } from "next/font/google";
+export const reenie_beanie = Reenie_Beanie({
+  weight: ["400"],
+  style: ["normal"],
+  subsets: ["latin"],
+});
 const MainApp = () => {
   const styles = useStyles();
   return (
