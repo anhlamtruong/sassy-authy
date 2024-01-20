@@ -1,6 +1,5 @@
 "use client";
 
-import { UserRole } from "./generated/@prisma-client-authenticate";
 import { useCurrentRole } from "@/hooks/use_current_role";
 import { Card, CardContent, CardHeader } from "@/components/ui/card";
 import { RoleGate } from "@/components/auth/role_gate";
@@ -8,6 +7,7 @@ import { FormSuccess } from "@/components/form_success";
 import { Button } from "@/components/ui/button";
 import { toast } from "sonner";
 import { admin } from "@/actions/admin";
+import { UserRole } from "@/generated/@prisma-client-authenticate";
 const AdminPage = () => {
   const role = useCurrentRole();
   const onServerActionClick = () => {
