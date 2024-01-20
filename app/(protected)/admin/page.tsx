@@ -1,6 +1,6 @@
 "use client";
 
-import { UserRole } from "@prisma-client-authenticate";
+import { UserRole } from "./generated/@prisma-client-authenticate";
 import { useCurrentRole } from "@/hooks/use_current_role";
 import { Card, CardContent, CardHeader } from "@/components/ui/card";
 import { RoleGate } from "@/components/auth/role_gate";
