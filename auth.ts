@@ -53,7 +53,7 @@ export const {
       return true;
     },
     async session({ token, session }) {
-      console.log({ sessionToken: token, session });
+      // console.log({ sessionToken: token, session });
       if (token.sub && session.user) {
         session.user.id = token.sub;
       }
@@ -90,4 +90,5 @@ export const {
   adapter: PrismaAdapter(prismaAuthenticate),
   session: { strategy: "jwt" },
   ...authConfig,
+  secret: process.env.AUTH_SECRET,
 });
