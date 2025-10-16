@@ -1,7 +1,5 @@
 "use client";
 
-import { logout } from "@/actions/logout";
-import ThemeSwitcher from "@/components/ui/theme_switcher";
 import { useCurrentUser } from "@/hooks/use_current_user";
 import { useStyles } from "@/hooks/use_styles";
 
