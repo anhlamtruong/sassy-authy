@@ -9,6 +9,11 @@ const inter = Inter({ subsets: ["latin"] });
 export const metadata = {
   title: "SASSY AUTHY",
   description: "Very Sexy Authentication Application",
+  icons: {
+    icon: "/icon.png", // Or /favicon.ico if you prefer
+    shortcut: "/favicon.ico", // For older browsers/OS
+    apple: "/apple-touch-icon.png",
+  },
 };
 
 export default async function RootLayout({
