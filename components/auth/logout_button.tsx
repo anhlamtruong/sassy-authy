@@ -12,8 +12,8 @@ const LogoutButton: React.FC<LogoutButtonProps> = ({ children }) => {
   const [isPending, startTransition] = useTransition();
 
   const onClick = () => {
-    startTransition(async () => {
-      await logout();
+    startTransition(() => {
+      logout();
     });
   };
 
