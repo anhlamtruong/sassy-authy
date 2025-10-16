@@ -3,13 +3,14 @@
 
 generator client {
   provider = "prisma-client-js"
-  output   = "../../node_modules/@prisma-client-authenticate"
+  output   = "../../generated/@prisma-client-authenticate"
+  
 }
 
 datasource db {
   provider  = "postgresql"
-  url  	    = env("DATABASE_URL_AUTHENTICATE")
-  directUrl = env("DIRECT_URL_AUTHENTICATE")
+  url  	    = env("DATABASE_URL")
+  directUrl = env("DIRECT_URL")
 }
 
 enum UserRole{

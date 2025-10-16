@@ -3,9 +3,9 @@ import authConfig from "@/auth.config";
 import prismaAuthenticate from "@/lib/db/authenticate_db";
 import { PrismaAdapter } from "@auth/prisma-adapter";
 import { getUserById } from "@/data/user";
-import { UserRole } from "@prisma-client-authenticate";
 import { getTwoFactorConfirmationByUserId } from "@/data/two_factor_confirmation";
 import { getAccountByUserId } from "@/data/account";
+import { UserRole } from "./generated/@prisma-client-authenticate";
 export const {
   handlers: { GET, POST },
   auth,
@@ -53,7 +53,7 @@ export const {
       return true;
     },
     async session({ token, session }) {
-      console.log({ sessionToken: token, session });
+      // console.log({ sessionToken: token, session });
       if (token.sub && session.user) {
         session.user.id = token.sub;
       }
@@ -90,4 +90,5 @@ export const {
   adapter: PrismaAdapter(prismaAuthenticate),
   session: { strategy: "jwt" },
   ...authConfig,
+  secret: process.env.AUTH_SECRET,
 });
