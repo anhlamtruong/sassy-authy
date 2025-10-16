@@ -7,7 +7,7 @@ import { signOut } from "@/auth";
 // Returns void on success; errors are caught and logged.
 export const logout = async () => {
   try {
-    await signOut();
+    await signOut({ redirectTo: "/auth/login" });
   } catch (err) {
     // If signOut triggers Next's redirect sentinel (NEXT_REDIRECT), rethrow it
     // so the framework can perform the redirect. Swallowing it prevents the
