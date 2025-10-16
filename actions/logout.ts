@@ -7,7 +7,7 @@ import { signOut } from "@/auth";
 // Returns void on success; errors are caught and logged.
 export const logout = async () => {
   try {
-    await signOut({ redirectTo: "/auth/login" });
+    await signOut();
   } catch (err) {
     console.error("logout action failed:", err);
     throw err;
